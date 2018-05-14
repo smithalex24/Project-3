@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Navbar, NavItem } from 'react-materialize';
 
 
 
@@ -32,13 +33,12 @@ class Nav extends Component {
 		);
 	}
 		return (
-			<div className = "navbar">
-				<nav className = "nav">
-					<Link to = "/">Home</Link>
+				<Navbar brand = "Mentr[Ed] right">
+					<NavItem href="/">Home</NavItem>
 					{links}
-				</nav>
+				</Navbar>
 				<header className="App-header">
-          			<h1 className="App-title">Welcome to MentorED!</h1>
+          			<h1 className="App-title">Welcome to Mentr[Ed]!</h1>
         		</header>
 			</div>
 	
@@ -48,3 +48,7 @@ class Nav extends Component {
 }
 
 export default Nav;
+<Navbar brand='logo' right>
+  <NavItem onClick={() => console.log('test click')}>Getting started</NavItem>
+  <NavItem href='components.html'>Components</NavItem>
+</Navbar>

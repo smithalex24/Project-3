@@ -3,21 +3,28 @@ html, body {
   width: 100% !important;
 }
 
-nav {
+.nav-wrapper {
   width: 100%;
-  background-color: #555;
-  padding: 10px 0; 
+  background-color: #49bbc1;
+  margin: 0px 100px 0px -220px;
+  padding: 0 4vw;
 }
+
+
 nav a {
   margin: 20px;
   text-decoration: none;
   font-size: 20px;
   color: white;
-  font-family: 'Abril Fatface'
+  font-family: 'Ubuntu', sans-serif;
+  text-align: right;
 }
 
 nav a:hover {
   color: black;
+  background-color: #333333;
+  max-height: 100%
+
 }
 .footer {
   background-color: #555;
@@ -29,7 +36,7 @@ nav a:hover {
 .footer-text {
   color: white;
   font-size: 15px;
-  font-family: 'Abril Fatface';
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .App {
@@ -42,48 +49,47 @@ nav a:hover {
   width: 80%;
 }
 
-
 .App-header {
   background-color: #222;
   height: 150px;
   padding: 20px;
   color: white;
-  font-family: 'Abril Fatface';
+  font-family: 'Abel', sans-serif;
 }
 
 .App-title {
   font-size: 2em;
-  font-family: 'Abril Fatface';
+  font-family: 'Abel', sans-serif;
 }
 
 .App-intro {
   font-size: large;
-  font-family: 'Abril Fatface';
+  font-family: 'Ubuntu', sans-serif;
 }
 .hometext {
-  font-family: 'Abril Fatface';
+  font-family: 'Ubuntu', sans-serif;
   font-size: 25px;
   font-weight: bold;
 }
 .loginheader {
-  font-family: 'Abril Fatface';
+  font-family: 'Open Sans Condensed', sans-serif;
   font-weight: bold;
 }
 .resultkey {
-  font-family: 'Abril Fatface';
+  font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
   font-size: 15px;
 
 
 }
 .searchHeader {
-  font-family: 'Abril Fatface';
+  font-family: 'Ubuntu', sans-serif;
   font-size: 40px;
   font-weight: bold;
 
 }
 .searchmentor {
-  font-family: 'Abril Fatface';
+  font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
   font-size: 20px;
 
@@ -96,13 +102,53 @@ nav a:hover {
   font-weight: bold;
 }
 .signupheader {
-  font-family: 'Abril Fatface';
+  font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
 
 }
 label {
-   font-family: 'Abril Fatface';
+   font-family: 'Open Sans Condensed', sans-serif;
+
 
 }
+.mentor-form {
+  text-align: left;
+  left: -30px;
+  color: white;
+  font-family: 'Ubuntu', sans-serif;
+}
+.list-container {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  text-align: center!important;
+}
 
-
+.new-display {
+  background-color: grey;
+  height: 100vh;
+  width: 100%;
+  color: white;
+  padding: 0px 20px;
+}
+.collapsible-header {
+  background-color: #222222;
+}
+.collapsible-body {
+  background-color: #479a9e5e
+}
+.mentor-form h4 {
+  color: black;
+}
+[type="checkbox"].filled-in:checked+label:after {
+  background-color: #49bbc1;
+  border: 2px solid black;
+}
+[type="checkbox"]+label {
+  color: black;
+  font-family: 'Ubuntu', sans-serif;
+}
+.button, .input {
+  color: white;
+  background-color: #49bbc1;
+}

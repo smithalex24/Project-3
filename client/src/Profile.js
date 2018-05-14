@@ -25,6 +25,7 @@ class Profile extends Component {
 					field: results.data.field,
 					experience: results.data.experience
 				})
+				console.log(results)
 			}).catch(err => {
 				console.log('ERROR', err);
 			});
@@ -42,30 +43,8 @@ class Profile extends Component {
 			});
 		}
 	}
+}
 //passing formsubmit as props in mentorform
-	formSubmit = (e) => {
-		e.preventDefault();
-		console.log("Mentor form created!", this.state);
-		console.log('user is', this.props.user);
-		axios.post('http://localhost:3001/mentor', {
-			userId: this.props.user.id, 
-			// field: ['something here'],
-			field: this.props.field,
-			experience: this.props.experience
-		})
-		.then(result => {
-			this.setState({ 
-				field: result.data.field 
-			});
-			console.log(result)
-			console.log('Yay, it worked!', result);
-		})
-		.catch(err => {
-			console.log('ERROR', err);
-		});
-	}
-
-  }
 
 
 
@@ -75,11 +54,8 @@ class Profile extends Component {
 		if(this.props.user && this.props.user.mentor){
 			return (
 				<div>
-					<h1>Hello again, {this.props.user.name}!</h1>
-					<h3>Your email is {this.props.user.email}</h3>
-					<MentorForm user={this.props.user} formSubmit={this.formSubmit} />
-					<p>{this.state.field}</p>
 					<MentorForm user={this.props.user}/>
+					<hr />
 				</div>
 			);
 		} else if (this.props.user && !this.props.user.mentor) {
@@ -99,6 +75,7 @@ class Profile extends Component {
 	}
 
 }
+
 
 
 
