@@ -50,7 +50,6 @@ class Signup extends Component {
 		console.log("form was submitted!", this.state);
 		axios.post('http://localhost:3001/auth/signup', this.state)
 		.then(result => {
-			console.log('SUCCESS!', result);
 			localStorage.setItem('mernToken', result.data.token);
 			//Update the user 
 			this.props.updateUser();

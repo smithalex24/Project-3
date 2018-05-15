@@ -33,14 +33,15 @@ class Nav extends Component {
 		);
 	}
 		return (
-				<Navbar brand = "Mentr[Ed] right">
-					<NavItem href="/">Home</NavItem>
+				<div className = 'navbar'>
+					<nav className = "nav">
+					<Link to ="/">Home</Link>
 					{links}
-				</Navbar>
+				</nav>
 				<header className="App-header">
           			<h1 className="App-title">Welcome to Mentr[Ed]!</h1>
         		</header>
-			</div>
+        		</div>
 	
 	
 		);
@@ -48,7 +49,3 @@ class Nav extends Component {
 }
 
 export default Nav;
-<Navbar brand='logo' right>
-  <NavItem onClick={() => console.log('test click')}>Getting started</NavItem>
-  <NavItem href='components.html'>Components</NavItem>
-</Navbar>

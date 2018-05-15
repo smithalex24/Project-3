@@ -12,7 +12,8 @@ class Search extends Component {
 				email: '',
 				zipcode: ''
 			}
-			]
+			],
+			user: this.props.user
 		};
 	}
 
@@ -31,24 +32,29 @@ handleSearch = (e) => {
 			results : res.data
 		})
 
-		console.log('results from axios call', res.data);
+		
 	})
 	.catch(err => {
 		console.log('ERROR', err);
 	});
 }
-
+saveContacts = (e) => {
+	e.preventDefault();
+	console.log(e.target);
+	console.log(this.state);
+	axios.post(`http://localhost:3001/profile/${this.state.user.id}`, {Mentor: e.target.getAttribute('data-mentor'), Contact: e.target.getAttribute('data-email'), Location: e.target.getAttribute('data-location')})
+}
 
 	render() {
 		const results = this.state.results.map(person => {
 			if(person && person.name){
 				return (
-					<div key={person.id}>
+					<div className = "contact" key={person.id}>
 						<p>Mentor: {person.name}</p>
 						<p>Contact: {person.email}</p>
 						<p>Location: {person.zipcode}</p>
 						<div>
-							<input type = "submit" value = "Connect" className = "button" />
+							<input onClick = {this.saveContacts} type = "submit" value = "Connect" className = "button" data-mentor = {person.name} data-email = {person.email} data-location = {person.zipcode} />
 						</div>
 						<hr />
 					</div>
@@ -62,7 +68,7 @@ handleSearch = (e) => {
 					<div>
 						<input name = "Zipcode" placeholder = "What is your Zipcode?" value = {this.state.zipcode} onChange = {this.handleZipChange} />
 					</div>
-					<input type = "submit" value = "Search!" className = "button" />
+					<button onClick = "search">Search Mentors</button>
 				</form>
 				<hr />
 				<div>

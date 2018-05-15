@@ -14,7 +14,7 @@ class SearchMentor extends Component {
 		return (
 		<div className = "searchmentor">
 		<h1 className = "searchHeader">Connect with a Mentor in your area!</h1>
-		<Search />
+		<Search user={this.props.user} />
 		</div>
 		)
 	}

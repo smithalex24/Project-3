@@ -22,9 +22,16 @@ router.get('/', function(req, res) {
 
 //find specific user id
 router.get('/:id', (req, res) => {
-  Student.findOne({_id:req.params.id}).then(data =>{
+	console.log('ypo', req.params.id)
+  User.findOne({_id:req.params.id}).then(data =>{
+  	console.log('this is return',data)
     res.send(data)
   })
+})
+
+router.delete('/:id/:mentorId', (req, res) => {
+	console.log(req.params.id)
+	console.log(req.params.mentorId)
 })
 
 //create student info
@@ -42,5 +49,20 @@ router.post('/', function(req, res) {
 	})
  	res.send();
 });
+router.post('/:id', (req, res) => {
+	User.findByIdAndUpdate(
+		req.params.id,
+		{$push: {savedMentors: req.body}},
+		{ 'new': true },
+		function (err, user) {
+			if(err) {
+				console.log('Error', err);
+			};
+			user.save();
+			res.send(user);
+		}
+	)
+});
+
 
 module.exports = router;

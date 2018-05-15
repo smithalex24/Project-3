@@ -10,6 +10,8 @@ import Nav from './layout/Nav';
 import Profile from './Profile';
 import Signup from './auth/Signup';
 import SearchMentor from './SearchMentor';
+import Contact from './Contact';
+
 
 
 class App extends Component {
@@ -29,7 +31,6 @@ class App extends Component {
     console.log('get user');
     var token = localStorage.getItem('mernToken');
     if(token){
-      console.log('token found in LS', token);
       // There is a token in local storage. Try to validate it 
       axios.post('http://localhost:3001/auth/me/from/token', {
         headers: { 'Authorization': `Bearer ${token}` }
@@ -50,7 +51,6 @@ class App extends Component {
       });
     }
     else {
-      console.log('No token was found');
       localStorage.removeItem('mernToken');
         this.setState({
           user: null
@@ -59,8 +59,7 @@ class App extends Component {
   }
 
   render() {
-    console.log("THIS IS THE USER")
-    console.log(this.state.user)
+    console.log("THIS IS THE USER", this.state.user)
     return (
       <div className="App">
         <Router>
@@ -76,7 +75,9 @@ class App extends Component {
             <Route path = "/profile" component = {
               () => (<Profile user={this.state.user} />)
             } />
-            <Route path = "/search" component = { () => (<SearchMentor  />)
+            <Route path = "/search" component = { () => (<SearchMentor user={this.state.user} />)
+            } />
+             <Route path = "/contact" component = { () => (<Contact user={this.state.user} />)
             } />
           </div>
         </Router>

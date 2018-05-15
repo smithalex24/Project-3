@@ -25,7 +25,12 @@ var userSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  mentor: Boolean
+  mentor: Boolean,
+  savedMentors: [{
+    Mentor: String,
+    Contact: String,
+    Location: String
+  }]
 
 });
 
@@ -38,7 +43,8 @@ userSchema.set('toJSON', {
       email: user.email,
       name: user.name,
       zipcode: user.zipcode,
-      mentor: user.mentor
+      mentor: user.mentor,
+      savedMentors: user.savedMentors
   };
     return returnJson;
   }

@@ -18,8 +18,9 @@ class Profile extends Component {
 	};
 
 	componentDidMount () {
-		if (this.props.user.mentor === true) {
-			axios.get('http://localhost:3001/mentor/' + this.props.user.id)
+	if (this.props.user) {
+ 	 if (this.props.user.mentor) {
+  		axios.get('http://localhost:3001/mentor/' + this.props.user._id)
 			.then(results => {
 				this.setState ({
 					field: results.data.field,
@@ -30,9 +31,10 @@ class Profile extends Component {
 				console.log('ERROR', err);
 			});
 		}
+  
 
-		else if (this.props.user.mentor === false) {
-			axios.get('http://localhost:3001/student/' + this.props.user.id)
+  	else {
+		axios.get('http://localhost:3001/student/' + this.props.user.id)
 			.then(results => {
 				this.setState ({
 					field: results.data.field,
@@ -41,10 +43,10 @@ class Profile extends Component {
 			}).catch(err => {
 				console.log('ERROR', err);
 			});
+
 		}
 	}
 }
-//passing formsubmit as props in mentorform
 
 
 
@@ -65,6 +67,7 @@ class Profile extends Component {
 					<h3>Your email is {this.props.user.email}</h3>
 					<StudentForm user={this.props.user}/>
 					<Link to = "/search"> Find a Mentor</Link>
+					<Link to = "/contact">Contact List</Link>
 				</div>
 			)
 		} else {
